@@ -8,6 +8,8 @@ public class Personaje {
     int Vida;
     Scanner in = new Scanner(System.in);
 
+
+
     // PUBLIC PERSONAJE DATA
     public Personaje(){
         this.Nombre = Nombre;
@@ -16,17 +18,21 @@ public class Personaje {
         this.Vida = Vida;
     }
 
+
+
     // GET | SET - NOMBRE
     public String getNombre(){
-        return Trabajo;
+        return Nombre;
     }
     public void setNombre(String Nombre){
         System.out.println("¿Cuál es tu nombre?\n" +
-                           "\nINSERTA TU NOMBRE:\n");
-        Nombre = in.next();
+                           "\nINSERTA TU NOMBRE:");
+        Nombre = in.nextLine();
 
         this.Nombre = Nombre;
     }
+
+
 
     // GET | SET - TRABAJO
     public String getTrabajo(){
@@ -67,6 +73,8 @@ public class Personaje {
         this.Trabajo = Trabajo;
     }
 
+
+
     // INFO DE LOS TRABAJOS
     public void infoTrabajos(){
         System.out.println("Esta es la información de los trabajos:\n\n" +
@@ -74,6 +82,8 @@ public class Personaje {
                 "Mago: Erudito que ha dedicado buena suma de su vida a aprender el noble arte de la magia, obtienes un bastón con el que combatir contra tus enemigos.\n\n" +
                 "Arquero: Intrépido cazador de los bosques, ágil como el solo y un dominio sin igual con el arco, obtienes un arco con el que combatir contra tus enemigos\n");
     }
+
+
 
     // SET - ARMA
     public void setArma(){
