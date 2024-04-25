@@ -1,6 +1,8 @@
 package Elementos;
 import java.util.Scanner;
 
+import static java.lang.Integer.parseInt;
+
 public class Personaje {
     String Nombre;
     String Trabajo;
@@ -8,22 +10,11 @@ public class Personaje {
     int Vida;
     Scanner in = new Scanner(System.in);
 
-
-
-    // PUBLIC PERSONAJE DATA
-    public Personaje(){
-        this.Nombre = Nombre;
-        this.Trabajo = Trabajo;
-        this.Arma = Arma;
-        this.Vida = Vida;
-    }
-
-
-
     // GET | SET - NOMBRE
     public String getNombre(){
         return Nombre;
     }
+
     public void setNombre(String Nombre){
         System.out.println("¿Cuál es tu nombre?\n" +
                            "\nINSERTA TU NOMBRE:");
@@ -38,6 +29,7 @@ public class Personaje {
     public String getTrabajo(){
         return Trabajo;
     }
+
     public void setTrabajo(String Trabajo) {
         int select;
 
@@ -50,7 +42,7 @@ public class Personaje {
                     "==== 4. INFORMACIÓN ====\n" +
                     "========================");
 
-            select = in.nextInt();
+            select = parseInt(in.nextLine());
 
             switch (select) {
                 case 1:
@@ -85,8 +77,35 @@ public class Personaje {
 
 
 
-    // SET - ARMA
-    public void setArma(){
+    // GET | SET - ARMA
 
+    public String getArma(){
+        return Arma;
+    }
+
+    public void setArma(String Arma){
+        switch (Trabajo) {
+            case "Guerrero":
+                Arma = "Espada";
+                break;
+            case "Mago":
+                Arma = "Bastón";
+                break;
+            case "Arquero":
+                Arma = "Arco";
+                break;
+        }
+        this.Arma = Arma;
+    }
+
+
+
+    // GET | SET - VIDA
+    public int getVida(){
+        return Vida;
+    }
+
+    public void setVida(int Vida){
+        this.Vida = Vida;
     }
 }
