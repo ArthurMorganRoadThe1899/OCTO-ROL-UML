@@ -34,5 +34,11 @@ public class Escenario {
         System.out.println("\nMi nombre es " + PJ.getNombre() + ", y mi primo Manolo me ha pedido algo extraño.\n" +
                            "Quiere que me adentre en una mazmorra en busca de un colgante el cuál el le llama 'Colgante del alma'.\n" +
                            "No se que se traera entre manos esta vez, pero aún le debo una, así que vamos allá...\n");
+
+        int n = 8;
+        do{
+            PJ.Atacar();
+            n = n - 1;
+        }while(n > 0);
     }
 }
