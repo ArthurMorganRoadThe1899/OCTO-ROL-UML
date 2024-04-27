@@ -7,7 +7,8 @@ public class Personaje {
     String Nombre;
     String Trabajo;
     String Arma;
-    int Vida;
+    int maxVida;
+    int Vida = maxVida;
     int Pociones = 5;
     Scanner in = new Scanner(System.in);
 
@@ -32,6 +33,7 @@ public class Personaje {
 
     public void setTrabajo(String Trabajo) {
         int select;
+        boolean Pasa;
 
         do {
             System.out.println("¿Qué trabajo te gustaría elegir?\n" +
@@ -42,23 +44,39 @@ public class Personaje {
                     "==== 4. INFORMACIÓN ====\n" +
                     "========================");
 
-            select = parseInt(in.nextLine());
+            do {
+                select = 1;
+                Pasa = true;
 
-            switch (select) {
-                case 1:
-                    Trabajo = "Guerrero";
-                    break;
-                case 2:
-                    Trabajo = "Mago";
-                    break;
-                case 3:
-                    Trabajo = "Arquero";
-                    break;
-                case 4:
-                    infoTrabajos();
-                    break;
-            }
+                // Le pedimos al usuario cuál de las opciones del menu quiere
+                try {
+                    select = parseInt(in.nextLine());
+                } catch (Exception ignored) {
+                    System.out.println("Introduce un valor valido por favor");
+                    Pasa = false;
+                }
+                if(select > 4 || select < 1){
+                    System.out.println("Introduce un valor dentro del rango esperado por favor");
+                    Pasa = false;
+                }
 
+            }while(!Pasa);
+
+            // Switch que hará referencia a la variable select
+                switch (select) {
+                    case 1:
+                        Trabajo = "Guerrero";
+                        break;
+                    case 2:
+                        Trabajo = "Mago";
+                        break;
+                    case 3:
+                        Trabajo = "Arquero";
+                        break;
+                    case 4:
+                        infoTrabajos();
+                        break;
+                }
         }while (select == 4) ;
 
         // Establezco aquí el trabajo del PJ
@@ -70,7 +88,7 @@ public class Personaje {
     // INFO DE LOS TRABAJOS
     public void infoTrabajos(){
         System.out.println("Esta es la información de los trabajos:\n\n" +
-                "Guerrero: Habil espadachin curtido en el campo de batalla, obtienes una espada con la que combatir contra tus enemigos.\n\n" +
+                "Guerrero: Hábil espadachín curtido en el campo de batalla, obtienes una espada con la que combatir contra tus enemigos.\n\n" +
                 "Mago: Erudito que ha dedicado buena suma de su vida a aprender el noble arte de la magia, obtienes un bastón con el que combatir contra tus enemigos.\n\n" +
                 "Arquero: Intrépido cazador de los bosques, ágil como el solo y un dominio sin igual con el arco, obtienes un arco con el que combatir contra tus enemigos\n");
     }
@@ -111,7 +129,18 @@ public class Personaje {
 
 
 
-    // ACCIONES
+    // GET | SET - VIDA MÁXIMA
+    public int getMaxVida(){
+        return maxVida;
+    }
+
+    public void setMaxVida(int maxVida){
+        this.maxVida = maxVida;
+    }
+
+
+
+    // ACCIONES //
 
     // POCIONES
     public void Pocion(){
@@ -122,6 +151,9 @@ public class Personaje {
             System.out.println("Te bebes una poción, esta te cura " + vidaCurada);
             Pociones = Pociones - 1;
             Vida = Vida + vidaCurada;
+            if (Vida > maxVida){
+                Vida = maxVida;
+            }
         }else if(Pociones <= 0){
             System.out.println("Parece que no te quedan pociones, solo te queda atacar...");
             Atacar();
@@ -179,7 +211,7 @@ public class Personaje {
             System.out.println("Daño: " + Danyo + "\nVida curada: +" + vidaCurada);
         }
         else if(Trabajo == "Mago" && seleccionDeDialogo == 5){
-            System.out.println("Invocas una bola de fuego al enemigo para calzinarlo con todo tu poder mágico!");
+            System.out.println("Invocas una bola de fuego al enemigo para calcinarlo con todo tu poder mágico!");
             Danyo =  Danyo + 2;
             System.out.println("Daño: " + Danyo);
         }
@@ -205,11 +237,64 @@ public class Personaje {
             System.out.println("Daño: " + Danyo);
         }
         else if(Trabajo == "Arquero" && seleccionDeDialogo == 5){
-            System.out.println("Te escondes habilmente sin que el enemigo se percate, y le asestas un letal golpe en la cabeza");
+            System.out.println("Te escondes hábilmente sin que el enemigo se percate, y le asestas un letal golpe en la cabeza");
             Danyo = Danyo + danyoExtraArquero + 2;
             System.out.println("Daño: " + Danyo);
         }
 
+        // Esto lo hago para que cuando se cure, no se pase del limite de vida establecido
+        if (Vida > maxVida){
+            Vida = maxVida;
+        }
+
         return Danyo;
+    }
+
+
+
+    public void Menu(){
+        int Response = 0;
+        boolean Pasa;
+        String BarraHP = BarraHP();
+
+        Vida = Vida - 1;
+        // Hago el menu dentro de un do while para que el usuario no eliga un número que no corresponda
+        do {
+            Pasa = true;
+        System.out.println("HP: \u001B[31m" + BarraHP + "\u001B[0m\n" +
+                "======================\n" +
+                "==== 1. ATACAR =======\n" +
+                "==== 2. POCIÓN =======\n" +
+                "======================\n");
+
+        try {
+            Response = parseInt(in.nextLine());
+        }catch (Exception ignored){}
+
+            switch (Response) {
+                case 1:
+                    Atacar();
+                    break;
+                case 2:
+                    Pocion();
+                    break;
+                default:
+                    Pasa = false;
+                    System.out.println("Elige una de las opciones");
+                    break;
+            }
+        }while(!Pasa);
+
+    }
+
+
+
+    // BARRA DE HP
+    public String BarraHP(){
+        StringBuilder Value = new StringBuilder("|");
+        for (int i = 1; i < Vida; i++){
+            Value.append("|");
+        }
+        return Value.toString();
     }
 }
