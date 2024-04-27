@@ -137,6 +137,7 @@ public class Personaje {
         int Danyo = (int) (Math.random() * ((10 - 5) + 1)) + 5;
         int danyoExtraArquero = (int) (Math.random() * ((7 - 1) + 1)) + 1;
 
+
         // TEXTOS DEL GUERRERO
         if(Trabajo == "Guerrero" && seleccionDeDialogo == 1){
             System.out.println("Te abalanzas con tu espada y asestas un golpe que podrías haber partido en 2 al enemigo\nDaño: " + Danyo);
@@ -160,6 +161,7 @@ public class Personaje {
             System.out.println("Daño: " + Danyo);
         }
 
+
         // TEXTOS DEL MAGO
         if(Trabajo == "Mago" && seleccionDeDialogo == 1){
             System.out.println("Invocas una descarga de fuego con la que haces daño al enemigo\nDaño: " + Danyo);
@@ -181,6 +183,7 @@ public class Personaje {
             Danyo =  Danyo + 2;
             System.out.println("Daño: " + Danyo);
         }
+
 
         // TEXTOS DEL ARQUERO
         if(Trabajo == "Arquero" && seleccionDeDialogo == 1){
