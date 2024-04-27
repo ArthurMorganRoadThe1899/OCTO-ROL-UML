@@ -12,7 +12,7 @@ public class Personaje {
     int Pociones = 5;
     Scanner in = new Scanner(System.in);
 
-    // GET | SET - NOMBRE
+    // GET | SET - NOMBRE //
     public String getNombre(){
         return Nombre;
     }
@@ -26,7 +26,7 @@ public class Personaje {
 
 
 
-    // GET | SET - TRABAJO
+    // GET | SET - TRABAJO //
     public String getTrabajo(){
         return Trabajo;
     }
@@ -85,7 +85,7 @@ public class Personaje {
 
 
 
-    // INFO DE LOS TRABAJOS
+    // INFO DE LOS TRABAJOS //
     public void infoTrabajos(){
         System.out.println("Esta es la información de los trabajos:\n\n" +
                 "Guerrero: Hábil espadachín curtido en el campo de batalla, obtienes una espada con la que combatir contra tus enemigos.\n\n" +
@@ -95,8 +95,7 @@ public class Personaje {
 
 
 
-    // GET | SET - ARMA
-
+    // GET | SET - ARMA //
     public String getArma(){
         return Arma;
     }
@@ -118,7 +117,7 @@ public class Personaje {
 
 
 
-    // GET | SET - VIDA
+    // GET | SET - VIDA //
     public int getVida(){
         return Vida;
     }
@@ -140,9 +139,7 @@ public class Personaje {
 
 
 
-    // ACCIONES //
-
-    // POCIONES
+    // POCIONES //
     public void Pocion(){
         int vidaCurada = (int) (Math.random() * ((6 - 1) + 1)) + 1;
         System.out.println("Pociones restantes: " + Pociones);
@@ -162,7 +159,7 @@ public class Personaje {
 
 
 
-    // ATACAR
+    // ATACAR //
     public int Atacar (){
         int seleccionDeDialogo = (int) (Math.random() * ((5 - 1) + 1)) + 1;
         int vidaCurada = (int) (Math.random() * ((2 - 1) + 1)) + 1;
@@ -170,7 +167,7 @@ public class Personaje {
         int danyoExtraArquero = (int) (Math.random() * ((7 - 1) + 1)) + 1;
 
 
-        // TEXTOS DEL GUERRERO
+        // TEXTOS DEL GUERRERO //
         if(Trabajo == "Guerrero" && seleccionDeDialogo == 1){
             System.out.println("Te abalanzas con tu espada y asestas un golpe que podrías haber partido en 2 al enemigo\nDaño: " + Danyo);
         }
@@ -194,7 +191,7 @@ public class Personaje {
         }
 
 
-        // TEXTOS DEL MAGO
+        // TEXTOS DEL MAGO //
         if(Trabajo == "Mago" && seleccionDeDialogo == 1){
             System.out.println("Invocas una descarga de fuego con la que haces daño al enemigo\nDaño: " + Danyo);
         }
@@ -217,7 +214,7 @@ public class Personaje {
         }
 
 
-        // TEXTOS DEL ARQUERO
+        // TEXTOS DEL ARQUERO //
         if(Trabajo == "Arquero" && seleccionDeDialogo == 1){
             System.out.println("Disparas al enemigo y le aciertas con éxito");
         }
@@ -252,6 +249,7 @@ public class Personaje {
 
 
 
+    // MENU //
     public void Menu(){
         int Response = 0;
         boolean Pasa;
@@ -289,7 +287,7 @@ public class Personaje {
 
 
 
-    // BARRA DE HP
+    // BARRA DE HP //
     public String BarraHP(){
         StringBuilder Value = new StringBuilder("|");
         for (int i = 1; i < Vida; i++){
