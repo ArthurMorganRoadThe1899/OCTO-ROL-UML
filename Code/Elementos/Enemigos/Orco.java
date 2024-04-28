@@ -1,14 +1,46 @@
 package Elementos.Enemigos;
 
 public class Orco extends Enemigo {
-
-    // PUBLIC ORCO//
-    public Orco(String Nombre, String Tipo, String Arma, int Vida) {
-        super(Nombre, Tipo, Arma, Vida);
-    }
+    String Nombre;
+    String Tipo;
+    String Arma;
     int seleccionDeDialogo;
     int vidaCurada;
     int DanyoE;
+    int maxVida;
+    int Vida = maxVida;
+
+
+    // PUBLIC ORCO//
+    public Orco(String Nombre, String Tipo, String Arma, int Vida, int maxVida) {
+        super(Nombre, Tipo, Arma, Vida);
+        this.Nombre = Nombre;
+        this.Tipo = Tipo;
+        this.Arma = Arma;
+        this.Vida = Vida;
+        this.maxVida = maxVida;
+    }
+
+
+    // GET | SET - VIDA //
+    public int getVida(){
+        return Vida;
+    }
+
+    public void setVida(int Vida){
+        this.Vida = Vida;
+    }
+
+
+
+    // GET | SET - VIDA MÁXIMA
+    public int getMaxVida(){
+        return maxVida;
+    }
+
+    public void setMaxVida(int maxVida){
+        this.maxVida = maxVida;
+    }
 
 
 
@@ -58,6 +90,11 @@ public class Orco extends Enemigo {
         else if(Arma == "Arco" && seleccionDeDialogo == 3){
             System.out.println("Tras un disparo preciso te hizo \nDaño: " + DanyoE);
         }
+
+        if (Vida > maxVida){
+            Vida = maxVida;
+        }
+
         return DanyoE;
     }
 

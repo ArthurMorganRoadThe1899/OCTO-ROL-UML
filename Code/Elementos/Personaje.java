@@ -1,6 +1,5 @@
 package Elementos;
 import java.util.Scanner;
-
 import static java.lang.Integer.parseInt;
 
 public class Personaje {
@@ -169,74 +168,74 @@ public class Personaje {
 
         // TEXTOS DEL GUERRERO //
         if(Trabajo == "Guerrero" && seleccionDeDialogo == 1){
-            System.out.println("Te abalanzas con tu espada y asestas un golpe que podrías haber partido en 2 al enemigo\nDaño: " + Danyo);
+            System.out.println("Te abalanzas con tu espada y asestas un golpe que podrías haber partido en 2 al enemigo\nDaño: " + Danyo + "\n");
         }
         else  if(Trabajo == "Guerrero" && seleccionDeDialogo == 2){
-            System.out.println("Te embistes con el enemigo, este ha salido volando por los aires\nDaño: " + Danyo);
+            System.out.println("Te embistes con el enemigo, este ha salido volando por los aires\nDaño: " + Danyo + "\n");
         }
         else  if(Trabajo == "Guerrero" && seleccionDeDialogo == 3){
             System.out.println("Rajas al enemigo, y en el proceso parece que le has roto una mini poción que te ha salpicado");
             Vida = Vida + vidaCurada;
-            System.out.println("Daño: " + Danyo + "\nVida curada: +" + vidaCurada);
+            System.out.println("Daño: " + Danyo + "\nVida curada: +" + vidaCurada + "\n");
         }
         else  if(Trabajo == "Guerrero" && seleccionDeDialogo == 4){
             System.out.println("Decides lanzarle tu espada al enemigo, no fue tu mejor ataque, pero le diste");
             Danyo = Danyo - 1;
-            System.out.println("Daño: " + Danyo);
+            System.out.println("Daño: " + Danyo + "\n");
         }
         else  if(Trabajo == "Guerrero" && seleccionDeDialogo == 5){
             System.out.println("Te aprovechas del entorno haciendo acrobacias, le das un patadote al enemigo para después embestirlo con fiereza con tu espada!");
             Danyo =  Danyo + 3;
-            System.out.println("Daño: " + Danyo);
+            System.out.println("Daño: " + Danyo + "\n");
         }
 
 
         // TEXTOS DEL MAGO //
         if(Trabajo == "Mago" && seleccionDeDialogo == 1){
-            System.out.println("Invocas una descarga de fuego con la que haces daño al enemigo\nDaño: " + Danyo);
+            System.out.println("Invocas una descarga de fuego con la que haces daño al enemigo\nDaño: " + Danyo + "\n");
         }
         else if(Trabajo == "Mago" && seleccionDeDialogo == 2){
-            System.out.println("Con tus conocimientos arcanos, invocas un rayo de escarcha contra el enemigo\nDaño: " + Danyo);
+            System.out.println("Con tus conocimientos arcanos, invocas un rayo de escarcha contra el enemigo\nDaño: " + Danyo + "\n");
         }
         else if(Trabajo == "Mago" && seleccionDeDialogo == 3){
-            System.out.println("Lanzas al enemigo un rayo con el que lo fulminas\nDaño: " + Danyo);
+            System.out.println("Lanzas al enemigo un rayo con el que lo fulminas\nDaño: " + Danyo + "\n");
         }
         else if(Trabajo == "Mago" && seleccionDeDialogo == 4){
             System.out.println("Decides empujar al enemigo con una descarga sobrenatural no muy potente para aprovecharte y curarte");
             Danyo = Danyo - 1;
             Vida = Vida + vidaCurada;
-            System.out.println("Daño: " + Danyo + "\nVida curada: +" + vidaCurada);
+            System.out.println("Daño: " + Danyo + "\nVida curada: +" + vidaCurada + "\n");
         }
         else if(Trabajo == "Mago" && seleccionDeDialogo == 5){
             System.out.println("Invocas una bola de fuego al enemigo para calcinarlo con todo tu poder mágico!");
             Danyo =  Danyo + 2;
-            System.out.println("Daño: " + Danyo);
+            System.out.println("Daño: " + Danyo + "\n");
         }
 
 
         // TEXTOS DEL ARQUERO //
         if(Trabajo == "Arquero" && seleccionDeDialogo == 1){
-            System.out.println("Disparas al enemigo y le aciertas con éxito");
+            System.out.println("Disparas al enemigo y le aciertas con éxito\nDaño: " + Danyo + "\n");
         }
         else if(Trabajo == "Arquero" && seleccionDeDialogo == 2){
             System.out.println("Le disparas en la rodilla, causas daños notorios");
             Danyo = Danyo + 1;
-            System.out.println("Daño: " + Danyo);
+            System.out.println("Daño: " + Danyo + "\n");
         }
         else if(Trabajo == "Arquero" && seleccionDeDialogo == 3){
             System.out.println("Le disparas al enemigo, pero fallas tu golpe...");
             Danyo =  0;
-            System.out.println("Daño: " + Danyo);
+            System.out.println("Daño: " + Danyo + "\n");
         }
         else if(Trabajo == "Arquero" && seleccionDeDialogo == 4){
             System.out.println("Aprovechas tu posición y le disparas 3 flechas en un turno al enemigo");
             Danyo = Danyo + danyoExtraArquero;
-            System.out.println("Daño: " + Danyo);
+            System.out.println("Daño: " + Danyo + "\n");
         }
         else if(Trabajo == "Arquero" && seleccionDeDialogo == 5){
             System.out.println("Te escondes hábilmente sin que el enemigo se percate, y le asestas un letal golpe en la cabeza");
             Danyo = Danyo + danyoExtraArquero + 2;
-            System.out.println("Daño: " + Danyo);
+            System.out.println("Daño: " + Danyo + "\n");
         }
 
         // Esto lo hago para que cuando se cure, no se pase del limite de vida establecido
@@ -250,7 +249,8 @@ public class Personaje {
 
 
     // MENU //
-    public void Menu(){
+    public int Menu(){
+        int danyo = 0;
         int Response = 0;
         boolean Pasa;
         String BarraHP = BarraHP();
@@ -259,7 +259,7 @@ public class Personaje {
         // Hago el menu dentro de un do while para que el usuario no eliga un número que no corresponda
         do {
             Pasa = true;
-        System.out.println("HP: \u001B[31m" + BarraHP + "\u001B[0m\n" +
+        System.out.println("\nHP: \u001B[31m" + BarraHP + "\u001B[0m\n" +
                 "======================\n" +
                 "==== 1. ATACAR =======\n" +
                 "==== 2. POCIÓN =======\n" +
@@ -271,7 +271,7 @@ public class Personaje {
 
             switch (Response) {
                 case 1:
-                    Atacar();
+                    danyo = Atacar();
                     break;
                 case 2:
                     Pocion();
@@ -283,6 +283,7 @@ public class Personaje {
             }
         }while(!Pasa);
 
+        return danyo;
     }
 
 

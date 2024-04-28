@@ -1,10 +1,14 @@
+import Elementos.Enemigos.Esqueleto;
+import Elementos.Enemigos.Orco;
 import Elementos.Personaje;
+import Elementos.Enemigos.Enemigo;
 import java.util.Scanner;
 import java.util.Objects;
 
 public class Escenario {
     public static void main(String[] args) {
-        int intResponse; // Quitar esta variable si no se llega a usar //
+        int danyoEnemigo;
+        int danyoPersonaje;
         char charResponse;
 
         Scanner in = new Scanner(System.in);
@@ -15,7 +19,7 @@ public class Escenario {
             PJ.setNombre("i");
             PJ.setTrabajo("i");
             PJ.setArma("i");
-            PJ.setVida(10);
+            PJ.setVida(20);
             PJ.setMaxVida(PJ.getVida());
 
             System.out.println("¿Este eres tu?\n" +
@@ -37,20 +41,27 @@ public class Escenario {
                            "No se que se traera entre manos esta vez, pero aún le debo una, así que vamos allá...\n");
 
 
-        // Combate
+        // Combate 1
+        Esqueleto esqueleto = new Esqueleto("Brook", "Common", "Lanza", 22, 22);
+        System.out.println("Vaya, un esqueletito, vamos a ver que tan enclenque es\n-- EMPIEZA EL COMBATE --");
 
-        int n = 500;
-        do{
-            PJ.Menu();
-            n = n - 1;
-        }while(n > 0);
+        do {
+            esqueleto.setVida(esqueleto.getVida() - PJ.Menu());
+            PJ.setVida(PJ.getVida() - esqueleto.Atacar());
+        }while (esqueleto.getVida() > 0 && PJ.getVida() > 0);
 
 
-        //System.out.println("\nJum, maldito esqueleto, pero no supuso demasiado problema, sigamos...");
+        if(esqueleto.getVida() < 0){
+            System.out.println("victoria");
+        }else if(PJ.getVida() < 0){
+            System.out.println("derrota");
+        }
+
+        System.out.println("\nJum, maldito esqueleto, pero no supuso demasiado problema, sigamos...");
         // Combate 2
 
         //System.out.println("\nMaldito orco ¿donde me mandas a ir  Manolo?\nMe pregunto que se traera entre manos con ese grupito de exploradores.");
-        // Combate 3
+        // Combate de jefe
 
         /*System.out.println("\nEse goblin a dado guerra..\n" +
                            "¿Hm? ¿Qué es esto?\n" +
@@ -58,7 +69,6 @@ public class Escenario {
                            "-- " + PJ.getNombre() + " Leyo el contenido del Papel Arrugado --\n" +
                            "La madre que te parío Manolo, como que...");*/
 
-        // Combate de jefe
 
         /*System.out.println("\nCONTENIDO DEL Papel Arrugado:" +
                                 "El Colgante del Alma es un poderoso artefacto que habeis de custodiar con vuestra vida.\n" +
