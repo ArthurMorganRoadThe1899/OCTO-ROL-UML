@@ -1,0 +1,99 @@
+classDiagram
+    Escenario <|-- Personaje
+    Escenario <|-- Enemigo
+    Enemigo <|-- Esqueleto
+    Enemigo <|-- Goblin
+    Enemigo <|-- Orco
+    Escenario : +int intResponse
+    Escenario : +String charResponse
+    Escenario : +char placeholder
+    Escenario : +Scanner in
+    Escenario : +Personaje PJ
+    Escenario : +Esqueleto esqueleto
+    Escenario : +Goblin goblin
+    Escenario : +Orco orco
+    Escenario: +main()
+
+    class Personaje{
+      +String Nombre
+      +String Trabajo
+      +String Arma
+      +int Vida
+      +int Pociones
+      +Scanner in
+      +getNombre()
+      +setNombre()
+      +getTrabajo()
+      +setTrabajo()
+      +infoTrabajos()
+      +getArma()
+      +setArma()
+      +getVida()
+      +setVida()
+      +Pocion()
+      +Atacar()
+      +Menu()
+      +BarraHP()
+    }
+    class Enemigo{
+      #String Nombre
+      #String Tipo
+      #String Arma
+      #int Vida
+      +Enemigo()
+      +Atacar()*
+    }
+    class Esqueleto{
+      +String Nombre
+      +String Tipo
+      +String Arma
+      +int seleccionDeDialogo
+      +int vidaCurada
+      +int DanyoE
+      +int maxVida
+      +int Vida
+      +Esqueleto()
+      +getVida()
+      +setVida()
+      +getMaxVida()
+      +setMaxVida()
+      +getNombre()
+      +Atacar()*
+    }
+    class Goblin{
+      +String Nombre
+      +String Tipo
+      +String Arma
+      +int seleccionDeDialogo
+      +int vidaCurada
+      +int DanyoE
+      +int maxVida
+      +int Vida
+      +Esqueleto()
+      +getVida()
+      +setVida()
+      +getMaxVida()
+      +setMaxVida()
+      +getNombre()
+      +Atacar()*
+
+    }
+    class Orco{
+      +String Nombre
+      +String Tipo
+      +String Arma
+      +int seleccionDeDialogo
+      +int vidaCurada
+      +int DanyoE
+      +int maxVida
+      +int Vida
+      +Esqueleto()
+      +getVida()
+      +setVida()
+      +getMaxVida()
+      +setMaxVida()
+      +getNombre()
+      +Atacar()*
+    }
+
+    

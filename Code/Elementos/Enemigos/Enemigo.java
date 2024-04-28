@@ -1,7 +1,5 @@
 package Elementos.Enemigos;
 
-import java.util.Random;
-
 public abstract class Enemigo {
     protected String Nombre;
     protected String Tipo;
