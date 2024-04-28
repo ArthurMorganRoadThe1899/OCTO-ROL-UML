@@ -44,12 +44,25 @@ public class Orco extends Enemigo {
 
 
 
+    // GET | SET - NOMBRE //
+    public String getNombre(){
+        return Nombre;
+    }
+
+    public void setNombre(String Nombre){
+        this.Nombre = Nombre;
+    }
+
+
+
     // ATACAR //
     @Override
     public int Atacar() {
+        int letalRate = (int) (Math.random() * ((2 - 1) + 1)) + 1;
         seleccionDeDialogo = (int) (Math.random() * ((3 - 1) + 1)) + 1;
         vidaCurada = (int) (Math.random() * ((2 - 1) + 1)) + 1;
         DanyoE = (int) (Math.random() * ((8 - 3) + 1)) + 3;
+
 
         // Ataque con hacha
         if(Arma == "Hacha" && seleccionDeDialogo == 1){
@@ -89,6 +102,27 @@ public class Orco extends Enemigo {
         }
         else if(Arma == "Arco" && seleccionDeDialogo == 3){
             System.out.println("Tras un disparo preciso te hizo \nDaño: " + DanyoE);
+        }
+
+        // Ataque con maza
+        else if(Arma == "Mazo"){
+            System.out.println(getNombre() + ": CATAPLOM CON MAZO");
+            DanyoE =  DanyoE + 2;
+            System.out.println("Daño: " + DanyoE);
+        }
+        else if(Arma == "Mazo" && seleccionDeDialogo == 1 && letalRate == 2){
+            System.out.println(getNombre() + ": CATAPLOM CON MAZO");
+            DanyoE =  DanyoE + 9;
+            System.out.println("Daño: " + DanyoE);
+        }
+        else if(Arma == "Mazo" && seleccionDeDialogo == 1){
+            System.out.println("El orco te pega un mazazo durísimo\nDaño: " + DanyoE);
+        }
+        else if(Arma == "Mazo" && seleccionDeDialogo == 2){
+            System.out.println("El orco se pone a hacer un kaitengiri con su mazo sobre ti y te estampa sobre la pared\nDaño: " + DanyoE);
+        }
+        else if(Arma == "Mazo" && seleccionDeDialogo == 3){
+            System.out.println("El orco te golpea con su maza con mucho empeño de alejarte de la siguiente sala\nDaño: " + DanyoE);
         }
 
         if (Vida > maxVida){

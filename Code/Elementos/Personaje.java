@@ -8,7 +8,7 @@ public class Personaje {
     String Arma;
     int maxVida;
     int Vida = maxVida;
-    int Pociones = 5;
+    int Pociones = 10;
     Scanner in = new Scanner(System.in);
 
     // GET | SET - NOMBRE //
@@ -140,11 +140,11 @@ public class Personaje {
 
     // POCIONES //
     public void Pocion(){
-        int vidaCurada = (int) (Math.random() * ((6 - 1) + 1)) + 1;
-        System.out.println("Pociones restantes: " + Pociones);
+        int vidaCurada = (int) (Math.random() * ((20 - 6) + 1)) + 6;
+        System.out.println("\nPociones restantes: " + Pociones);
 
         if(Pociones > 0){
-            System.out.println("Te bebes una poción, esta te cura " + vidaCurada);
+            System.out.println("Te bebes una poción, esta te cura " + vidaCurada + "\n");
             Pociones = Pociones - 1;
             Vida = Vida + vidaCurada;
             if (Vida > maxVida){

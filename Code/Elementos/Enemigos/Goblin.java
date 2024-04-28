@@ -1,4 +1,5 @@
 package Elementos.Enemigos;
+import Elementos.Personaje;
 
 public class Goblin extends Enemigo {
     String Nombre;
@@ -44,6 +45,17 @@ public class Goblin extends Enemigo {
 
 
 
+    // GET | SET - NOMBRE //
+    public String getNombre(){
+        return Nombre;
+    }
+
+    public void setNombre(String Nombre){
+        this.Nombre = Nombre;
+    }
+
+
+
     // ATACAR //
     @Override
     public int Atacar() {
@@ -58,8 +70,9 @@ public class Goblin extends Enemigo {
 
         // Ataque para los epicos
         else if (Tipo == "Epico" && seleccionDeDialogo == 2) {
+            // Por pereza no implemente que el enemigo te robe realmente una poción, solo te sale el dialogo XD
             System.out.println("Tras robarte una pocion y empujarte");
-            DanyoE = DanyoE - 1;
+            DanyoE = DanyoE - 2;
             Vida = Vida + vidaCurada;
             System.out.println("Daño: " + DanyoE + "\nVida curada: +" + vidaCurada);
         }

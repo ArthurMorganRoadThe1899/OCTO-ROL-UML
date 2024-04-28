@@ -44,6 +44,17 @@ public class Esqueleto extends Enemigo{
 
 
 
+    // GET | SET - NOMBRE //
+    public String getNombre(){
+        return Nombre;
+    }
+
+    public void setNombre(String Nombre){
+        this.Nombre = Nombre;
+    }
+
+
+
     // ATACAR //
     @Override
     public int Atacar() {
