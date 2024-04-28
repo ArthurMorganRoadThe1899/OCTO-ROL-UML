@@ -6,8 +6,6 @@ import java.util.Scanner;
 
 public class Escenario {
     public static void main(String[] args) {
-        int danyoEnemigo;
-        int danyoPersonaje;
         char charResponse;
 
         Scanner in = new Scanner(System.in);
