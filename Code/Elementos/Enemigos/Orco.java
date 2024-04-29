@@ -134,4 +134,21 @@ public class Orco extends Enemigo {
 
 
 
+    // BARRA DE HP  Y MOSTRARLO //
+    public String BarraHP(){
+        StringBuilder Value = new StringBuilder("|");
+        for (int i = 1; i < Vida; i++){
+            Value.append("|");
+        }
+        return Value.toString();
+    }
+
+
+    public void mostrarHPEnemy(){
+        String BarraHP = BarraHP();
+        System.out.println("\n" + getNombre() +"\nHP: \u001B[35m" + BarraHP + "\u001B[0m\n");
+    }
+
+
+
 }

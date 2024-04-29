@@ -259,7 +259,7 @@ public class Personaje {
         // Hago el menu dentro de un do while para que el usuario no eliga un número que no corresponda
         do {
             Pasa = true;
-        System.out.println("\nHP: \u001B[31m" + BarraHP + "\u001B[0m\n" +
+        System.out.println("\n" + getNombre() + "\nHP: \u001B[31m" + BarraHP + "\u001B[0m\n" +
                 "======================\n" +
                 "==== 1. ATACAR =======\n" +
                 "==== 2. POCIÓN =======\n" +

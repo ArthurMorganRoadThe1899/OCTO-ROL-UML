@@ -46,6 +46,7 @@ public class Escenario {
 
         // Combate 1
         do {
+            esqueleto.mostrarHPEnemy();
             esqueleto.setVida(esqueleto.getVida() - PJ.Menu());
 
             // Esto lo hago dentro de un if para que si matas al enemigo, el turno en el que va a morir ya no haga un último ataque
@@ -63,10 +64,11 @@ public class Escenario {
             // Planta 2
             System.out.println("\n" + PJ.getNombre() + ": Bien, siguiente pis-\n" +
                                "Goblin: Nyeheheheheehehe, ¡ALEJATE DEL COLGANTE!\n" +
-                               PJ.getNombre() + ": Nah, le debo un favor a mi primo ¡¡PREPARATE!!");
+                               PJ.getNombre() + ": Nah, le debo un favor a mi primo ¡¡PREPARATE!!\n-- EMPIEZA EL COMBATE --");
 
             // Combate 2
             do {
+                goblin.mostrarHPEnemy();
                 goblin.setVida(goblin.getVida() - PJ.Menu());
 
                 if(goblin.getVida() > 0){
@@ -89,10 +91,11 @@ public class Escenario {
                 // Planta 3
                 System.out.println(orco.getNombre() + ": Buscando el colgante, ¿huh?\n" +
                                    PJ.getNombre()  + ": Seh... Y espero no tener que arrepentirme de ello.\n" +
-                                   orco.getNombre() + ": Bien, pues veamos si eres capaz de llevártelo con vida de aquí.\n");
+                                   orco.getNombre() + ": Bien, pues veamos si eres capaz de llevártelo con vida de aquí.\n-- EMPIEZA EL COMBATE --");
 
                 // Combate 3
                 do {
+                    orco.mostrarHPEnemy();
                     orco.setVida(orco.getVida() - PJ.Menu());
 
                     if(orco.getVida() > 0){
